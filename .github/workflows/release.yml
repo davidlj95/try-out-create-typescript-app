@@ -3,6 +3,12 @@ concurrency:
 
 jobs:
   release:
+    # 👇 Fails because:
+    #     - Not setting a proper write NPM token: can't publish
+    #     - Tries to publish because first commit (init)
+    #    It may also fail because:
+    #     - GitHub token doesn't allow to create the release commit
+    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
